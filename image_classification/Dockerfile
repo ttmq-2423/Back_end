@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     git \
     && rm -rf /var/lib/apt/lists/*
-
+RUN python3 -m venv venv
+ENV PATH="/app/venv/bin:$PATH"
 RUN pip3 install -r requirements.txt
 EXPOSE 8000
 HEALTHCHECK CMD curl --fail http://localhost:8000/_stcore/health

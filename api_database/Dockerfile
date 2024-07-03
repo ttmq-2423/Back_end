@@ -1,0 +1,15 @@
+FROM python:3.8
+COPY . /app
+WORKDIR /app
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    build-essential \
+    curl \
+    software-properties-common \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install -r requirements.txt
+EXPOSE 8001
+HEALTHCHECK CMD curl --fail http://localhost:8001/_stcore/health
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]

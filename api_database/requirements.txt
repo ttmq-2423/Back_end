@@ -1,0 +1,11 @@
+asgiref
+Django
+django-cors-headers
+djangorestframework
+djongo
+dnspython
+pillow
+pymongo
+pytz
+sqlparse
+tzdata

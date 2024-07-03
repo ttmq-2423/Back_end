@@ -2,6 +2,7 @@ FROM python:3.8
 COPY . /app
 WORKDIR /app
 RUN apt-get update && apt-get install -y \
+    apt-utils \
     libgl1-mesa-glx \
     build-essential \
     curl \
